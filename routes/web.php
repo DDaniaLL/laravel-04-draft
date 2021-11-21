@@ -1,17 +1,17 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\Admin\MessageController as AdminMessageController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
-use App\Http\Controllers\Admin\MessageController as AdminMessageController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TagController as AdminTagController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Models\Post;
@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     $skills = ['swimming', 'shooting', 'horse riding'];
@@ -37,12 +37,14 @@ Route::get('/', function () {
 
     $posts = Post::latest()->paginate(6);
     $projects = Project::latest()->paginate(6);
+    $settings = Setting::all();
     // $posts = Post::all();
     return view('welcome', [
-        'skills'    => $skills,
-        'image'     => $picture,
-        'posts'     => $posts,
-        'projects'  => $projects
+        'skills' => $skills,
+        'image' => $picture,
+        'posts' => $posts,
+        'projects' => $projects,
+        'settings' => $settings,
     ]);
 })->name('welcome');
 
@@ -55,14 +57,13 @@ Route::resource('categories', CategoryController::class);
 Route::resource('tags', TagController::class);
 Route::resource('projects', ProjectController::class)->only(['index', 'show']);
 
-
 Route::get('lang/{locale}', function ($locale) {
     // config(['app.locale' => $locale]);
     app()->setlocale($locale);
     session(['locale' => $locale]);
     return redirect()->route('welcome');
     // dd(config('app.locale'), session('locale', 'en'));
-})->name('changeLocale')/*->middleware('password.confirm')*/;
+})->name('changeLocale') /*->middleware('password.confirm')*/;
 
 Auth::routes(['register' => false, 'verify' => true]);
 

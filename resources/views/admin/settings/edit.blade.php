@@ -1,5 +1,18 @@
 @extends('layouts.app', ['activePage' => 'settings', 'titlePage' => __('Settings Page')])
 
+@push('css')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+@endpush
+
+@push('js')
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.summernote').summernote();
+    });
+</script>
+@endpush
+
 @section('content')
     <div class="content">
         <div class="container-fluid">
@@ -68,6 +81,96 @@
                                             @if ($errors->has('hero_image'))
                                                 <span id="image-error" class="error text-danger"
                                                     for="input-image">{{ $errors->first('hero_image') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer ml-auto mr-auto">
+                                <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                            </div>
+                        </div>
+
+                        {{-- Footer Management --}}
+
+                        <div class="card ">
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title">{{ __('Footer Settings') }}</h4>
+                            </div>
+                            <div class="card-body ">
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">{{ __('About Us current info') }}</label>
+                                    <div class="col-sm-7 "type="text">
+                                        {!! old('about_content', $settings->firstWhere('title', 'about_content')->content) !!}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">{{ __('About Us update') }}</label>
+                                    <div class="col-sm-7">
+                                        <div class="form-group{{ $errors->has('about_content') ? ' has-danger' : '' }}">
+                                            <div class="summernote">
+                                                <textarea
+                                                name="about_content"
+                                                placeholder="{{ __('About') }}"
+                                                cols="30" rows="10">
+                                                </textarea>
+                                            </div>
+                                            @if ($errors->has('about_content'))
+                                                <span id="acontent-ar-error" class="error text-danger"
+                                                    for="input-about-ar">{{ $errors->first('about_content') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- important links --}}
+
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">{{ __('Important links current info') }}</label>
+                                    <div class="col-sm-7 "type="text">
+                                        {!! old('important_content', $settings->firstWhere('title', 'important_content')->content) !!}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">{{ __('Important link update') }}</label>
+                                    <div class="col-sm-7">
+                                        <div class="form-group{{ $errors->has('important_content') ? ' has-danger' : '' }}">
+                                            <div class="summernote">
+                                                <textarea
+                                                name="important_content"
+                                                placeholder="{{ __('About') }}"
+                                                cols="30" rows="10">
+                                                </textarea>
+                                            </div>
+                                            @if ($errors->has('important_content'))
+                                                <span id="acontent-ar-error" class="error text-danger"
+                                                    for="input-about-ar">{{ $errors->first('important_content') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+                            {{-- support space --}}
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">{{ __('Support current info') }}</label>
+                                    <div class="col-sm-7 "type="text">
+                                        {!! old('links_content', $settings->firstWhere('title', 'links_content')->content) !!}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label">{{ __('Support space update') }}</label>
+                                    <div class="col-sm-7">
+                                        <div class="form-group{{ $errors->has('links_content') ? ' has-danger' : '' }}">
+                                            <div class="summernote">
+                                                <textarea
+                                                name="links_content"
+                                                placeholder="{{ __('About') }}"
+                                                cols="30" rows="10">
+                                                </textarea>
+                                            </div>
+                                            @if ($errors->has('links_content'))
+                                                <span id="acontent-ar-error" class="error text-danger"
+                                                    for="input-about-ar">{{ $errors->first('links_content') }}</span>
                                             @endif
                                         </div>
                                     </div>

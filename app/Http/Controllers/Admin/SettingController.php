@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SettingsRequest;
 use App\Models\Setting;
 use Illuminate\Http\Request;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 
 class SettingController extends Controller
 {
@@ -18,12 +16,10 @@ class SettingController extends Controller
         return view('admin.settings.edit', ['settings' => $settings]);
     }
 
-
     public function create()
     {
         //
     }
-
 
     public function store(SettingsRequest $request)
     {
@@ -41,24 +37,20 @@ class SettingController extends Controller
         return back()->withStatus(__('New Hero Settings is successfully updated.'));
     }
 
-
     public function show($id)
     {
         //
     }
-
 
     public function edit($id)
     {
         //
     }
 
-
     public function update(Request $request, $id)
     {
         //
     }
-
 
     public function destroy($id)
     {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba6117f8b9502ae75211b7b1270fa12e",
+    "content-hash": "5b491102e68c4a693c4788dfbb598127",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3630,16 +3630,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "9.8.3",
+            "version": "9.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "687e769a7ba17e49d183947fe058e357ed3c615f"
+                "reference": "71ce715b5be60fe73bbcd6b8dba23ac9b78c9b62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/687e769a7ba17e49d183947fe058e357ed3c615f",
-                "reference": "687e769a7ba17e49d183947fe058e357ed3c615f",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/71ce715b5be60fe73bbcd6b8dba23ac9b78c9b62",
+                "reference": "71ce715b5be60fe73bbcd6b8dba23ac9b78c9b62",
                 "shasum": ""
             },
             "require": {
@@ -3719,7 +3719,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-medialibrary/issues",
-                "source": "https://github.com/spatie/laravel-medialibrary/tree/9.8.3"
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/9.9.0"
             },
             "funding": [
                 {
@@ -3731,7 +3731,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-10-18T22:57:53+00:00"
+            "time": "2021-11-17T09:36:26+00:00"
         },
         {
             "name": "spatie/laravel-permission",

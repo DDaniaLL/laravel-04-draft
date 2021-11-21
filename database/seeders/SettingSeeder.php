@@ -26,5 +26,19 @@ class SettingSeeder extends Seeder
             ['title' => 'hero_image'],
             ['content' => 'https://via.placeholder.com/468x220?text=Hero+Image']
         );
+
+        Setting::firstOrCreate(
+            ['title' => 'about_content'],
+            ['content' => 'This is a default about content']
+        );
+        Setting::firstOrCreate(
+            ['title' => 'important_content'],
+            ['content' => 'This is a default important contents']
+        );
+        Setting::firstOrCreate(
+            ['title' => 'links_content'],
+            ['content' => 'here are the default links']
+        );
+
     }
 }
