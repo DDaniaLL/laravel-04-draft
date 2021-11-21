@@ -32,16 +32,12 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-    $skills = ['swimming', 'shooting', 'horse riding'];
-    $picture = '/images/profile.png';
 
     $posts = Post::latest()->paginate(6);
     $projects = Project::latest()->paginate(6);
     $settings = Setting::all();
     // $posts = Post::all();
     return view('welcome', [
-        'skills' => $skills,
-        'image' => $picture,
         'posts' => $posts,
         'projects' => $projects,
         'settings' => $settings,
@@ -65,7 +61,8 @@ Route::get('lang/{locale}', function ($locale) {
     // dd(config('app.locale'), session('locale', 'en'));
 })->name('changeLocale') /*->middleware('password.confirm')*/;
 
-Auth::routes(['register' => false, 'verify' => true]);
+//allowing to have sign up page by setting register to true
+Auth::routes(['register' => true, 'verify' => true]);
 
 // to be removed
 Route::group(['middleware' => 'auth'], function () {
